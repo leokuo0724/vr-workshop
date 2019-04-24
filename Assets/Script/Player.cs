@@ -19,7 +19,7 @@ public class Player : MonoBehaviour {
         timer += Time.deltaTime;
       　
         
-        if (spawn.GetStateDown(m_inputSource))
+        if (Input.GetKeyDown(KeyCode.A))
         {
            GameObject go = Instantiate(BulletPrefab, BulletPoint.position, BulletPoint.transform.rotation) as GameObject;
             go.transform.Rotate(90f, 0, 0);
