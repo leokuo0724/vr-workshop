@@ -8,6 +8,7 @@ public class Player : MonoBehaviour {
     public GameObject BulletPrefab;
     public GameObject WinerImage;
     public GameObject enemy;
+    public GameObject enemy1;
     public SteamVR_Action_Boolean spawn;
     public SteamVR_Input_Sources m_inputSource;
     public Boxpl bo;
@@ -21,7 +22,10 @@ public class Player : MonoBehaviour {
     void Update () {
         //spawn.GetStateDown(m_inputSource)         
         timer += Time.deltaTime;
-        
+        if (timer > 0.1)
+        {
+            enemy1.SetActive(false);
+        }
         
         if (Input.GetKeyDown(KeyCode.A)&&timer>0.5)
         {
@@ -31,11 +35,10 @@ public class Player : MonoBehaviour {
             timer = 0;
 
         }
-        if(bo.a==1)
+        if(bo.a==1  )
         {
             WinerImage.SetActive(true);
             enemy.SetActive(false);
-
             bo1.Delet();
         }
 

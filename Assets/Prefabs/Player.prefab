@@ -799,11 +799,14 @@ MonoBehaviour:
   BulletPrefab: {fileID: 1888623991200076, guid: 2fede383fba2dac4d876f9531e481e3f,
     type: 2}
   WinerImage: {fileID: 1154930638999798}
+  enemy: {fileID: 0}
+  enemy1: {fileID: 0}
   spawn:
     actionPath: 
     needsReinit: 0
   m_inputSource: 0
   bo: {fileID: 0}
+  bo1: {fileID: 0}
   timer: 0
 --- !u!114 &114652970018356278
 MonoBehaviour:
@@ -926,6 +929,8 @@ MonoBehaviour:
   Hp: -25
   Hp_Bar: {fileID: 114652970018356278}
   DeadImage: {fileID: 1754765858791008}
+  bo: {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!136 &136538941989763068
 CapsuleCollider:
   m_ObjectHideFlags: 1
