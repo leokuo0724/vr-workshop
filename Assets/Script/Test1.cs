@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class Test1 : MonoBehaviour {
     public Restart re;
     public BroadCase bc;
+    public SteamVR_Action_Boolean spawn;
+    public SteamVR_Input_Sources m_inputSource;
     // Use this for initialization
     void Start () {
 		
@@ -12,11 +15,13 @@ public class Test1 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.C))
+        //spawn.GetStateDown(m_inputSource)
+          if (Input.GetKeyDown(KeyCode.C))
         {
             bc.MSm();
         }
-        if(Input.GetKeyDown(KeyCode.X))
+        //spawn.GetStateUp(m_inputSource)
+        if (Input.GetKeyDown(KeyCode.X))
         {
             re.ResetGame();
         }
