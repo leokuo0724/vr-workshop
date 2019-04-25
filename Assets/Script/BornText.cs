@@ -5,9 +5,13 @@ using UnityEngine;
 public class BornText : MonoBehaviour
 {
     public GameObject Born_0;
+    public GameObject super;
+    private GameObject clone;
+
+
     public float X_min, X_max, Z_min, Z_max;
     // Use this for initialization
-    void Start()
+     public  void StartBorn()
     {
         StartCoroutine(BornObject());
     }
@@ -20,10 +24,23 @@ public class BornText : MonoBehaviour
     }
     IEnumerator BornObject()
     {
-        float ranx_ = Random.Range(X_min, X_max);
-        float ranz = Random.Range(Z_min, Z_max);
-        Vector3 pos = new Vector3(transform.position.x + ranx_, transform.position.y, transform.position.z + ranz);
-        Instantiate(Born_0, pos, transform.rotation);
-        yield return new WaitForSeconds(2);
+        int Num = 0;
+        while(Num<10)
+        {
+            Num += 1;
+            clone = Instantiate(Born_0);
+            float ranx_ = Random.Range(X_min, X_max);
+            float ranz = Random.Range(Z_min, Z_max);
+            Vector3 pos = new Vector3(transform.position.x + ranx_, transform.position.y, transform.position.z + ranz);
+            clone.transform.parent = super.transform;
+            clone.transform.localPosition = pos;
+            Object script = clone.GetComponent<Delete>();
+            Destroy(script);
+            yield return new WaitForSeconds(0.5f);
+        } 
+    }
+    public void Delet()
+    {
+        Destroy(clone);
     }
 }

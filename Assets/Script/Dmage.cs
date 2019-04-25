@@ -7,17 +7,28 @@ public class Dmage : MonoBehaviour {
 
     public float Hp = 100f;
     public Image Hp_Bar;
-	// Use this for initialization
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "enemy")
-        {
-
-            Hp -= 25;
-            Hp_Bar.fillAmount = Hp / 100f;
-            print(Hp);
-        }
-
-    }
+    public GameObject DeadImage;
+    public BornText bo;
+    public GameObject enemy;
     
+    // Use this for initialization
+    public void Awake()
+    {
+        Hp = 1;
+    }
+    public void hit()
+    {
+        Hp -= 1;
+        Hp_Bar.fillAmount = Hp / 100f;
+        print(Hp);
+        if(Hp==0 ||Hp<0)
+        {
+            enemy.SetActive(false);
+            DeadImage.SetActive(true);
+            bo.Delet();
+        }
+    }
+
+   
+
 }
