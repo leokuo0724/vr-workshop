@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 using Valve.VR;
 
 public class Player : MonoBehaviour {
-
+    public int a;
+    public Text ad;
     private AudioSource au;
     public Dmage da;
     public bool isStart;
@@ -31,6 +33,8 @@ public class Player : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        ad.text =""+a;
+        
         //spawn.GetStateDown(m_inputSource)         
         timer += Time.deltaTime;
         if (timer > 30)
@@ -69,5 +73,9 @@ public class Player : MonoBehaviour {
             }
         }
 
+    }
+    public void ddas()
+    {
+        a++;
     }
 }
