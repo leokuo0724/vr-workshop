@@ -5,18 +5,21 @@ using UnityEngine.UI;
 
 public class Boxpl : MonoBehaviour {
     public GameObject Exp;
+    public Player pl;
+    public bool i = false;
+    public int a=0;
     //public AudioSource test; 
     // Use this for initialization
-    private void OnTriggerEnter(Collider other)
-    {  
+    public void OnTriggerEnter(Collider other)
+    {
         if (other.gameObject.tag == "Bullet")
         {
-         
-        Vector3 temp = transform.position;
-        Instantiate(Exp, temp, Quaternion.identity);
-        Destroy(this.gameObject);   
-        Destroy(other.gameObject);
-      
+            i = true;
+            Vector3 temp = transform.position;
+            Instantiate(Exp, temp, Quaternion.identity);
+            Destroy(this.gameObject);
+            Destroy(other.gameObject);
+            pl.ddas();
         }
       
     }
