@@ -7,14 +7,16 @@ public class EffectbloodUI : MonoBehaviour {
 
     public float playerHP;
     public float playerHPMax;
-    
+    public Image i;
+    public float f;
     private Color c;
 
     //百分比數值
     public float HP50;
-    private float HP30;
-    private float HP10;
+    public float HP30;
+    public float HP10;
 
+    //閃爍效果
 
     //物體閃爍
     private float shake;
@@ -31,7 +33,8 @@ public class EffectbloodUI : MonoBehaviour {
         HP10 = (playerHPMax * 9) / 10;
 
         //獲取圖片屬性
-        c =this.GetComponent<Image>().color;
+        f =this.GetComponent<Image>().color.a;
+        c = this.GetComponent<Image>().color;
         c = new Color(c.r, c.g, c.b, 0 / 255f);
 
         //this.GetComponent<Renderer>().material.color = new Color
@@ -46,32 +49,48 @@ public class EffectbloodUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        f = this.GetComponent<Image>().color.a;
+        i.color = c;
 
         shake += Time.deltaTime;
 
-        if (playerHP<HP50)
+        if (c.a < 0)
+        {
+            c.a = 0;
+        }
+
+        if (playerHP < HP50)
         {
             if (shake % 1 > 0.5f)
             {
-                c = new Color(c.r, c.g, c.b, 30 / 255f);
-                //this.GetComponent<SkinnedMeshRenderer>().material.color = new Color(
-                //this.GetComponent<SkinnedMeshRenderer>().material.color.r,
-                //this.GetComponent<SkinnedMeshRenderer>().material.color.g,
-                //this.GetComponent<SkinnedMeshRenderer>().material.color.b,
-                //this.GetComponent<SkinnedMeshRenderer>().material.color.a + 30);
+                c = new Color(c.r, c.g, c.b, c.a + 0.2f / 255f);
             }
             else
             {
-                c = new Color(c.r, c.g, c.b, 0 / 255f);
-                //this.GetComponent<SkinnedMeshRenderer>().material.color = new Color(
-                //this.GetComponent<SkinnedMeshRenderer>().material.color.r,
-                //this.GetComponent<SkinnedMeshRenderer>().material.color.g,
-                //this.GetComponent<SkinnedMeshRenderer>().material.color.b,
-                //this.GetComponent<SkinnedMeshRenderer>().material.color.a - 30);
+                c = new Color(c.r, c.g, c.b, c.a - 0.2f / 255f);
             }
-
         }
-
-
+        if (playerHP < HP30)
+        {
+            if (shake % 1 > 0.5f)
+            {
+                c = new Color(c.r, c.g, c.b, c.a + 0.2f / 255f);
+            }
+            else
+            {
+                c = new Color(c.r, c.g, c.b, c.a - 0.2f / 255f);
+            }
+        }
+        if (playerHP < HP10)
+        {
+            if (shake % 1 > 0.5f)
+            {
+                c = new Color(c.r, c.g, c.b, c.a + 0.2f / 255f);
+            }
+            else
+            {
+                c = new Color(c.r, c.g, c.b, c.a - 0.2f / 255f);
+            }
+        }
     }
 }
