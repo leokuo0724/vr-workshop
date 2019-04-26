@@ -24,13 +24,13 @@ public class EffectbloodUI : MonoBehaviour {
     // Use this for initialization
     void Start () {
         //假設玩家血量 之後刪除
-        playerHP = 10;
+        playerHP = 9;
         playerHPMax = 100;
 
         //計算血量百分比
         HP50 = playerHPMax/2;
         HP30 = (playerHPMax * 3) / 10;
-        HP10 = (playerHPMax * 9) / 10;
+        HP10 = playerHPMax / 10;
 
         //獲取圖片屬性
         f =this.GetComponent<Image>().color.a;
@@ -59,37 +59,35 @@ public class EffectbloodUI : MonoBehaviour {
             c.a = 0;
         }
 
-        if (playerHP < HP50)
-        {
-            if (shake % 1 > 0.5f)
-            {
-                c = new Color(c.r, c.g, c.b, c.a + 0.2f / 255f);
-            }
-            else
-            {
-                c = new Color(c.r, c.g, c.b, c.a - 0.2f / 255f);
-            }
-        }
-        if (playerHP < HP30)
-        {
-            if (shake % 1 > 0.5f)
-            {
-                c = new Color(c.r, c.g, c.b, c.a + 0.2f / 255f);
-            }
-            else
-            {
-                c = new Color(c.r, c.g, c.b, c.a - 0.2f / 255f);
-            }
-        }
         if (playerHP < HP10)
         {
             if (shake % 1 > 0.5f)
             {
-                c = new Color(c.r, c.g, c.b, c.a + 0.2f / 255f);
+                c = new Color(c.r, c.g, c.b, c.a + 2f / 255f);
             }
             else
             {
-                c = new Color(c.r, c.g, c.b, c.a - 0.2f / 255f);
+                c = new Color(c.r, c.g, c.b, c.a - 2f / 255f);
+            }
+        }else if (playerHP < HP30)
+        {
+            if (shake % 1 > 0.5f)
+            {
+                c = new Color(c.r, c.g, c.b, c.a + 1f / 255f);
+            }
+            else
+            {
+                c = new Color(c.r, c.g, c.b, c.a - 1f / 255f);
+            }
+        }else if (playerHP < HP50)
+        {
+            if (shake % 1 > 0.5f)
+            {
+                c = new Color(c.r, c.g, c.b, c.a + 0.3f / 255f);
+            }
+            else
+            {
+                c = new Color(c.r, c.g, c.b, c.a - 0.3f / 255f);
             }
         }
     }
