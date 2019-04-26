@@ -16,7 +16,7 @@ public class Test1 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //spawn.GetStateDown(m_inputSource)
-          if (Input.GetKeyDown(KeyCode.C))
+          if (Input.GetKeyDown(KeyCode.A))
         {
             bc.MSm();
         }

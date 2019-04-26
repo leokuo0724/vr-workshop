@@ -14,7 +14,7 @@ public class Dmage : MonoBehaviour {
     // Use this for initialization
     public void Awake()
     {
-        Hp = 1;
+        Hp = 20;
     }
     public void hit()
     {

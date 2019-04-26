@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class Boxpl : MonoBehaviour {
     public GameObject Exp;
-    public int a;
     //public AudioSource test; 
     // Use this for initialization
     private void OnTriggerEnter(Collider other)
@@ -17,8 +16,7 @@ public class Boxpl : MonoBehaviour {
         Instantiate(Exp, temp, Quaternion.identity);
         Destroy(this.gameObject);   
         Destroy(other.gameObject);
-        a++;
-        print(a);
+      
         }
       
     }

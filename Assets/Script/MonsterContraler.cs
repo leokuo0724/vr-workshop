@@ -32,7 +32,7 @@ public class MonsterContraler : MonoBehaviour {
         }
         else
         {
-            Vector3 temp = transform.position;
+            Vector3 temp = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z +0.2f);
             Instantiate(playerExp, temp, Quaternion.identity);
             Destroy(this.gameObject);
             dmage.hit();
